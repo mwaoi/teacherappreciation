@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Teacher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>To My Teachers, Counselors, and Mentors</h1>
+            <p>Please click on your name. You'll need the special password I shared to view your message. 😊</p>
+        </header>
+        <main class="teacher-buttons">
+            <button class="teacher-btn" data-teacher="powell" data-password="if we won't, they won't" data-page="powell.html">Ms. Powell</button>
+            <button class="teacher-btn" data-teacher="wang" data-password="math is the best subject" data-page="wang.html">Ms. Wang</button>
+            <button class="teacher-btn" data-teacher="uyeda" data-password="hole in the wall" data-page="uyeda.html">Mr. Uyeda</button>
+            <button class="teacher-btn" data-teacher="sam" data-password="seca2021" data-page="sam.html">Mr. Sam</button>
+            <button class="teacher-btn" data-teacher="deirossi" data-password="seca2025" data-page="deirossi.html">Mr. Dei Rossi</button>
+            <button class="teacher-btn" data-teacher="lewis" data-password="tax evasion" data-page="lewis.html">Mr. Lewis</button>
+            <button class="teacher-btn" data-teacher="kaur" data-password="1R Algebra" data-page="kaur.html">Mrs. Kaur</button>
+            <button class="teacher-btn" data-teacher="baoguan" data-password="Taylor Series" data-page="baoguan.html">Professor Guan</button>
+            <button class="teacher-btn" data-teacher="Taorui" data-password="PedAnalyze" data-page="taorui.html">Taorui</button>
+            <button class="teacher-btn" data-teacher="hem" data-password="munchkin" data-page="hem.html">Mrs. Hem</button>
+            <button class="teacher-btn" data-teacher="razo" data-password="distance learning" data-page="razo.html">Mrs. Razo</button>
+            <button class="teacher-btn" data-teacher="potts" data-password="kindergarten" data-page="potts.html">Mrs. Potts</button>
+            <button class="teacher-btn" data-teacher="sil" data-password="khan academy" data-page="sil.html">Mrs. Sil</button>
+            </main>
+        <p><a href="index.html" class="button-link">&larr; Back to Welcome Page</a></p>
+        <footer>
+            <p>Thank you for everything!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.teacher-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const teacherName = this.textContent;
+                const correctPassword = this.dataset.password;
+                const pageToRedirect = this.dataset.page;
+
+                const enteredPassword = prompt(`Hi ${teacherName}! Please enter your password to view your message:`);
+
+                if (enteredPassword === null) { // User clicked cancel
+                    return;
+                }
+
+                if (enteredPassword === correctPassword) {
+                    alert('Password correct! 🎉 Taking you to your page...');
+                    window.location.href = pageToRedirect; // Redirect to the teacher's specific page
+                } else {
+                    alert('Incorrect password. Please try again or contact me at 209-905-0003 for the correct one. 😉');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
